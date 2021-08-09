@@ -5,9 +5,11 @@ import { IoPersonAddOutline } from "react-icons/io5"
 import { useFormik } from "formik";
 import { Form, Label, Input, Button } from "./ContactForm.styled";
 import { connect } from "react-redux";
+// import { useDispatch } from "react-redux";
 import contactsActions from "../redux/phoneBook-actions";
 
-function ContactForm({onSubmit}) {
+function ContactForm({ onSubmit }) {
+  // const dispacth = useDispatch();
 
    const formik = useFormik({
      initialValues: {
