@@ -12,7 +12,15 @@ import actions from "./phoneBook-actions";
 import initialContacts from "../data/initialContacts.json";
 
 const items = createReducer(initialContacts, {
-    [actions.addContact]: (state, {payload}) => [payload, ...state],
+    [actions.addContact]: (state, { payload }) => {
+        if (state.find(contact => contact.name.toLowerCase() === payload.name.toLowerCase())) {
+            alert(`${payload.name} is already in contacts`);
+            return state;
+        }
+        return [payload, ...state]
+    } ,
+        
+        
     [actions.deleteContact]: (state, {payload}) => state.filter(contact => contact.id !== payload),
 })
 
